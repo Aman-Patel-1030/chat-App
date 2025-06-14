@@ -37,6 +37,12 @@ async function main() {
 	await mongoose.connect(process.env.MONGODB_URI);
 }
 
+// All routes
+app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
+app.use("/api/chat", chatRouter);
+app.use("/api/message", messageRouter);
+
 // ---------------- code for deployment -------------
 if (process.env.NODE_ENV === "production") {
   const dirPath = path.resolve();
@@ -56,16 +62,12 @@ if (process.env.NODE_ENV === "production") {
 // 	});
 // });
 
-// All routes
-app.use("/api/auth", authRouter);
-app.use("/api/user", userRouter);
-app.use("/api/chat", chatRouter);
-app.use("/api/message", messageRouter);
+
 
 // Invaild routes
-app.all("*", (req, res) => {
-	res.json({ error: "Invaild Route" });
-});
+// app.all("*", (req, res) => {
+// 	res.json({ error: "Invaild Route" });
+// });
 
 // Error handling middleware
 app.use((err, req, res, next) => {
