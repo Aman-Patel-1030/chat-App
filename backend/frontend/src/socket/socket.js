@@ -16,7 +16,7 @@
 
 
 import { io } from "socket.io-client";  
-const ENDPOINT = `${import.meta.env.VITE_BACKEND_URL}`;  
+const ENDPOINT = "https://chat-app-kdd2.onrender.com";  
 
 console.log(ENDPOINT, "Attempting to connect to the server");
 

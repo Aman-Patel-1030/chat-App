@@ -7,13 +7,13 @@ const path = require("path");
 
 
 const app = express();
-
-const corsOptions = {
-	origin: process.env.FRONTEND_URL,
 	// methods: ["GET", "POST", "DELETE"],
 	// allowedHeaders: ["Content-Type", "Authorization"],
-	credentials: true,
+const corsOptions = {
+  origin: "https://chat-app-kdd2.onrender.com",
+  credentials: true,
 };
+
 
 
 
